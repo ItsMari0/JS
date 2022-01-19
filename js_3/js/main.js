@@ -8,16 +8,16 @@ console.log("Sample JavaScript #3 HW #17");
  * если число передано в функцию – счет начинается с указанного числа
  * если нет – то счет продолжается
  */
-var counter = (function () {
-  let count = 0;
-  return function (n) {
-    if (n != undefined) {
-      count = n;
-    } else {
-      count = count;
-    }
-    return count++;
-  };
+var counter = (function() {
+    let count = 0;
+    return function(n) {
+        if (n != undefined) {
+            count = n;
+        } else {
+            count = count;
+        }
+        return count++;
+    };
 })();
 console.log(counter()); // 0
 console.log(counter()); // 1
@@ -28,7 +28,7 @@ console.log(counter()); // 501
 console.log(counter(0)); // 0
 console.log(counter()); // 1
 console.log(
-  "/************************************************************************************ */"
+    "/************************************************************************************ */"
 );
 /************************************************************************************ */
 /*
@@ -41,22 +41,22 @@ console.log(
  * counting.increment() – увеличивает значение счетчика на 1
  * counting.decrement() – уменьшает значение счетчика на 1
  */
-var counting = (function () {
-  let count = 0;
-  return {
-    value(n) {
-      if (n != undefined) {
-        count = n;
-      }
-      return count;
-    },
-    increment() {
-      count++;
-    },
-    decrement() {
-      count--;
-    },
-  };
+var counting = (function() {
+    let count = 0;
+    return {
+        value(n) {
+            if (n != undefined) {
+                count = n;
+            }
+            return count;
+        },
+        increment() {
+            count++;
+        },
+        decrement() {
+            count--;
+        },
+    };
 })();
 console.log(counting.value()); // 0
 counting.increment();
@@ -73,7 +73,7 @@ console.log(counting.value(200)); // 200
 counting.increment();
 console.log(counting.value()); // 201
 console.log(
-  "/************************************************************************************ */"
+    "/************************************************************************************ */"
 );
 /************************************************************************************ */
 /*
@@ -87,29 +87,30 @@ console.log(
  * console.log(myPow(3, 4, myPrint)); // 3^4=81
  * console.log(myPow(2, 3, myPrint)); // 2^3=8
  */
-var myPrint = function (a, b, res) {
-  let str = a + "^" + b + "=" + res;
-  return str;
+var myPrint = function(a, b, res) {
+    let str = a + "^" + b + "=" + res;
+    return str;
 };
-var myPow = function (a, b, cb) {
-  let powNumbr = function (x, y) {
-    if (y > 0) {
-      x = x * powNumbr(x, y - 1);
-    } else if (y == 0) {
-      x = 1;
-    } /*else {
-      x = (x * 1) / powNumbr(x, y - 1);
-    }*/
-    return x;
-  };
-  return cb(a, b, powNumbr(a, b));
+var myPow = function(a, b, cb) {
+    let powNumbr = function(x, y) {
+        if (y > 0) {
+            x = x * powNumbr(x, y - 1);
+        } else if (y == 0) {
+            x = 1;
+        }
+        /*else {
+             x = (x * 1) / powNumbr(x, y - 1);
+           }*/
+        return x;
+    };
+    return cb(a, b, powNumbr(a, b));
 };
 console.log(myPow(3, 4, myPrint)); // 3^4=81
 console.log(myPow(2, 3, myPrint)); // 2^3=8
 console.log(myPow(3, 0, myPrint)); // 3^0=1
 
 console.log(
-  "/************************************************************************************ */"
+    "/************************************************************************************ */"
 );
 /************************************************************************************ */
 /*
@@ -125,33 +126,33 @@ console.log(
  */
 var yearNow = new Date().getFullYear(); // получить текущий год как число
 let car = {
-  engine: 2000,
-  model: "Lacetti",
-  name: "Chevrolet",
-  year: 2010,
-  info: carInfo,
-  get used() {
-    return yearNow != this.year ? "used" : "new";
-  },
-  set used(value) {
-    if (value === "new" && this.year < yearNow) this.year = yearNow;
-  },
+    engine: 2000,
+    model: "Lacetti",
+    name: "Chevrolet",
+    year: 2010,
+    info: carInfo,
+    get used() {
+        return yearNow != this.year ? "used" : "new";
+    },
+    set used(value) {
+        if (value === "new" && this.year < yearNow) this.year = yearNow;
+    },
 };
 let car1 = {
-  engine: "2021",
-  model: "BMW",
-  name: "M5",
-  year: 2021,
-  info: carInfo,
-  get used() {
-    return yearNow != this.year ? "used" : "new";
-  },
-  set used(value) {
-    if (value === "new" && this.year < yearNow) this.year = yearNow;
-  },
+    engine: "2021",
+    model: "M5",
+    name: "BMW",
+    year: 2021,
+    info: carInfo,
+    get used() {
+        return yearNow != this.year ? "used" : "new";
+    },
+    set used(value) {
+        if (value === "new" && this.year < yearNow) this.year = yearNow;
+    },
 };
 console.log(
-  "/************************************************************************************ */"
+    "/************************************************************************************ */"
 );
 /*
  * #5
@@ -163,21 +164,12 @@ console.log(
  * пробелы, запятые, символы cc и текст – имеют значение и проверяются при тестировании кода
  */
 function carInfo() {
-  return (
-    this.name +
-    " " +
-    this.model +
-    ", " +
-    this.engine +
-    "cc, year " +
-    this.year +
-    " " +
-    this.used
-  );
+    //return (this.name + ' ' + this.model + ', ' + this.engine + 'cc ' + 'year ' + this.year + ', ' + this.used);
+    return `${this.name} ${this.model}, ${this.engine}cc, year ${this.year}, ${this.used}`;
 }
 /*console.log(car.info());*/
 console.log(
-  "/************************************************************************************ */"
+    "/************************************************************************************ */"
 );
 /*
  * #6
@@ -207,15 +199,15 @@ console.log(car1.info()); // Infinite FX50 AWD, 5000cc, year 2019, new -- изм
  * В реализации функции должен быть применен метод Math.max() и apply().
  */
 console.log(
-  "/************************************************************************************ */"
+    "/************************************************************************************ */"
 );
 let list = [12, 23, 100, 34, 56, 9, 233];
-var myMax = function (a) {
-  return Math.max.apply(Math, a);
+var myMax = function(a) {
+    return Math.max.apply(Math, a);
 };
 console.log(myMax(list)); // 233
 console.log(
-  "/************************************************************************************ */"
+    "/************************************************************************************ */"
 );
 /*
  * #8
@@ -223,7 +215,7 @@ console.log(
  * Создайте функцию myMul(a, b), которая будет умножать числа а и b, возвращая результат.
  */
 function myMul(a, b) {
-  return a * b;
+    return a * b;
 }
 /*
  * создайте функции myDouble(n), которая принимает один параметр и  удваивает его.
@@ -242,7 +234,7 @@ console.log(myTriple(4)); // = myMul(3, 4) = 12
 console.log(myTriple(5)); // = myMul(3, 5) = 15
 
 console.log(
-  "/************************************************************************************ */"
+    "/************************************************************************************ */"
 );
 /*
  * #9
@@ -256,27 +248,27 @@ console.log(
 
 let notUniqNums = [1, 1, 2, 3, 4, 5, 6, 7];
 let notUniqStrings = [
-  "Bob",
-  "Kate",
-  "Jhon",
-  "Tom",
-  "Jhon",
-  "Kate",
-  "Tom",
-  "Bob",
-  "Jhon",
-  "Tom",
+    "Bob",
+    "Kate",
+    "Jhon",
+    "Tom",
+    "Jhon",
+    "Kate",
+    "Tom",
+    "Bob",
+    "Jhon",
+    "Tom",
 ];
 
 function myUniq(arr) {
-  let newArr = new Set();
-  arr.forEach((element) => {
-    newArr.add(element);
-  });
-  return newArr;
+    let newArr = new Set();
+    arr.forEach((element) => {
+        newArr.add(element);
+    });
+    return newArr;
 }
 console.log(myUniq(notUniqNums));
 console.log(myUniq(notUniqStrings));
 console.log(
-  "/************************************************************************************ */"
+    "/************************************************************************************ */"
 );
